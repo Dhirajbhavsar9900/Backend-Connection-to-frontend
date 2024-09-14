@@ -5,7 +5,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/api/jokes")
+      .get("https://backend-connection-to-frontend.onrender.com/api/jokes")
       .then((res) => {
         SetJokes(res.data);
         console.log(res.data);
