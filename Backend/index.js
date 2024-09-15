@@ -7,7 +7,7 @@ const app = express();
 // })
 
 
-app.get('/', (req, res) =>{
+app.get('/api/jokes', (req, res) =>{
   const jokes = [
     {
       id: 1,
