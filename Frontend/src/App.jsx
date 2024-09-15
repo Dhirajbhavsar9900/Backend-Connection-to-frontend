@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 function App() {
   const [jokes, SetJokes] = useState([]);
 
@@ -11,9 +12,10 @@ function App() {
         console.log(res.data);
       })
       .catch((error) => {
-        console.log(error);
-      },[]);
-  });
+        console.log("error", error);
+      });
+  }, []); // Empty dependency array means the effect runs only once after the initial render
+
   return (
     <>
       <div className="bg-cyan-900 flex flex-col justify-center min-h-screen items-center p-5">
@@ -32,7 +34,9 @@ function App() {
               className="bg-gray-700 p-5 mb-5 rounded-lg shadow-md"
               key={jokeItem.id}
             >
-              <span className="block text-black text-[20px] text-center bg-orange-200  rounded-lg p-2 font-bold mb-2">No.{jokeItem.id}</span>
+              <span className="block text-black text-[20px] text-center bg-orange-200 rounded-lg p-2 font-bold mb-2">
+                No.{jokeItem.id}
+              </span>
               <h3 className="text-center font-bold text-[22px] text-amber-300 mb-3">
                 {jokeItem.title}
               </h3>
