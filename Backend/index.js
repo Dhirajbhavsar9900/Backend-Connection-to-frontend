@@ -1,13 +1,12 @@
-import express from 'express'
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
-// app.get('/', (req, res) => {
-//     res.send('Hello DHirajjjj!')
-// })
+// Enable CORS to allow frontend access
+app.use(cors());
 
-
-app.get('/api/jokes', (req, res) =>{
+app.get('/api/jokes', (req, res) => {
   const jokes = [
     {
       id: 1,
@@ -35,11 +34,11 @@ app.get('/api/jokes', (req, res) =>{
       joke: "What’s orange and sounds like a parrot? A carrot.",
     },
   ];
-      res.send(jokes);
-})
+  res.send(jokes);
+});
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-})
+  console.log(`Server is running on port ${port}`);
+});
